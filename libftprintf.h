@@ -24,8 +24,10 @@ typedef struct  s_format
     int blank;
     int zero_padding;
     int field_width;
+    int total_length;
 } t_format;
 
-int	ft_printf(const char *, ...);
+int	        ft_printf(const char *, ...);
+t_format    ft_initialise(t_format *struct)
 
 #endif
