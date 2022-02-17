@@ -16,6 +16,16 @@
 # include <stdarg.h>
 # include "libft.h"
 
+typedef struct  s_format
+{
+    int alternate_form;
+    int left_adjustment;
+    int sign;
+    int blank;
+    int zero_padding;
+    int field_width;
+} t_format;
+
 int	ft_printf(const char *, ...);
 
 #endif
