@@ -38,7 +38,7 @@ void flag_process(char   *flag, t_format *table)
             table->sign = 1;
         if (flag == " ")
             table->blank = 1;
-        if (flag == "0" && leading = 0)
+        if (flag == "0" && leading == 0)
         {
             table->zero_padding = 1;
             leading == 1;
@@ -74,7 +74,6 @@ int	ft_printf(const char *input, ...)
         }
         else if (input[i] == 134)
         {
-            if ()
             // Manage escape sequences 
         }
         else

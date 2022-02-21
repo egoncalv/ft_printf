@@ -29,6 +29,6 @@ typedef struct  s_format
 } t_format;
 
 int	        ft_printf(const char *, ...);
-t_format    ft_initialise(t_format *struct)
+t_format    *ft_initialise(t_format *table);
 
 #endif
