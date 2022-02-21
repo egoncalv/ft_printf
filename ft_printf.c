@@ -26,6 +26,10 @@ t_format    *ft_initialise(t_format *table)
 
 void flag_process(char   *flag, t_format *table)
 {
+    int leading;
+    leading = 0;
+    while (flag == "#" || flag == "-" || flag || "+" && flag || " " || flag == "0")
+    {
         if (flag == "#")
             table->alternate_form = 1;
         if (flag == "-")
@@ -34,14 +38,22 @@ void flag_process(char   *flag, t_format *table)
             table->sign = 1;
         if (flag == " ")
             table->blank = 1;
-        if (flag == "0")
+        if (flag == "0" && leading = 0)
+        {
             table->zero_padding = 1;
+            leading == 1;
+            flag++;
+        }
+        if (ft_isdigit(flag))
+        {
+            while (ft_isdigit(flag))
+                //store digit string into table->field_width (try strlcpy inside a loop)
+        }
         flag++;
-        if (flag == "#" || flag == "-" || flag || "+" && flag || " " || flag == "0")
-            flag_process(*flag);
+    }
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *input, ...)
 {
 	va_list     arguments;
     t_format    *table;
@@ -51,23 +63,23 @@ int	ft_printf(const char *format, ...)
     if (!table)
         return (-1);
     ft_initialise(table);
-    va_start(arguments, format);
+    va_start(arguments, input);
     i = 0;
-    while (format[i])
+    while (input[i])
     {
-        if (format[i] == "%")
+        if (input[i] == "%")
         {
-            flag_process(format[i + 1], table);
+            flag_process(input[i++], table);
             // Manage flags and/or conversions
         }
-        else if (format[i] == 134)
+        else if (input[i] == 134)
         {
             if ()
             // Manage escape sequences 
         }
         else
         {
-            write(1, &format + i, 1);
+            write(1, &input + i, 1);
         }
         i++;
     }
