@@ -30,9 +30,10 @@ typedef struct s_format
 
 int			ft_printf(const char *input, ...);
 t_format	*ft_initialise(t_format *table);
-void		ft_flag_process(char *flag, t_format *table);
+int			ft_flag_process(const char **flag, t_format *table);
 int			ft_isformat(char *ch);
-void		ft_read_input(char *input, t_format *table);
+void		ft_read_input(const char *input, t_format *table);
 int 		ft_convert_digit_string(char *str);
+void    	ft_format_process(char *format, t_format *table);
 
 #endif

@@ -26,7 +26,7 @@ int	ft_convert_digit_string(char *str)
 		j++;
 	tmp = malloc(sizeof(char) * j - i + 1);
 	if (!tmp)
-		return (NULL);
+		return (0);
 	j = 0;
 	while (str[i])
 	{
