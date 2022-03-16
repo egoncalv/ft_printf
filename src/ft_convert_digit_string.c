@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/libftprintf_bonus.h"
 
 int	ft_convert_digit_string(const char *str)
 {

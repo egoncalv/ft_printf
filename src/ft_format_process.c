@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "../includes/libftprintf_bonus.h"
 
 void    ft_format_process(char *format, t_format **table)
 {
