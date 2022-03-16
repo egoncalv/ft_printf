@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf_bonus.h"
+#include "../includes/libftprintf.h"
+#include <stdio.h>
 
 t_format	*ft_initialise(t_format *table)
 {
@@ -49,7 +50,8 @@ void	ft_flag_process(const char **flag, t_format *table)
 			*flag += 1;
 		*flag += 1;
 	}
-	ft_format_process(flag, table);
+	*flag -= 1;
+	ft_format_process(flag, &table);
 }
 
 void	ft_read_and_write(const char *flag, t_format **table)
@@ -59,7 +61,7 @@ void	ft_read_and_write(const char *flag, t_format **table)
 		if (ft_strncmp(flag, "%", 1) == 0)
 		{
 			flag++;
-			ft_flag_process(&flag, table);
+			ft_flag_process(&flag, *table);
 		}
 		else
 			(*table)->total_length += write(1, flag, 1);

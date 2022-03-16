@@ -10,26 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf_bonus.h"
+#include "../includes/libftprintf.h"
+#include <stdio.h>
 
-void    ft_format_process(char *format, t_format **table)
+void    ft_format_process(const char **format, t_format **table)
 {
-    if (format == "c")
-        printf("Ok c");
-    if (format == "s")
-        printf("Ok s");
-    if (format == "p")
-        printf("Ok p");
-    if (format == "d")
-        printf("Ok d");
-    if (format == "i")
-        printf("Ok i");
-    if (format == "u")
-        printf("Ok u");
-    if (format == "x")
-        printf("Ok x");
-    if (format == "X")
-        printf("Ok X");
-    if (format == "%")
-        printf("Ok %");
+    if (ft_strncmp(*format, "c", 1) == 0)
+        printf("\nOk c");
+    if (ft_strncmp(*format, "s", 1) == 0)
+        printf("\nOk s");
+    if (ft_strncmp(*format, "p", 1) == 0)
+        printf("\nOk p");
+    if (ft_strncmp(*format, "d", 1) == 0)
+        printf("\nOk d");
+    if (ft_strncmp(*format, "i", 1) == 0)
+        printf("\nOk i");
+    if (ft_strncmp(*format, "u", 1) == 0)
+        printf("\nOk u");
+    if (ft_strncmp(*format, "x", 1) == 0)
+        printf("\nOk x");
+    if (ft_strncmp(*format, "X", 1) == 0)
+        printf("\nOk X");
+    if (ft_strncmp(*format, "%", 1) == 0)
+        printf("\nOk %%");
+    (*table)->total_length++;
 }

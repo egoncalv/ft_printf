@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf_bonus.h"
+#include "../includes/libftprintf.h"
 
 int	ft_isformat(char *ch)
 {

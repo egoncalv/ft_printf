@@ -15,4 +15,40 @@ FLAG = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRC = 
+SRC =	src/ft_convert_digit_string.c \
+		src/ft_format_process.c \
+		src/ft_isformat.c \
+		src/ft_printf.c \
+
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(MAKE) -C libft/ bonus
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "$(NAME) was created"
+
+%.o: %.c 
+	@gcc $(FLAG) -c $< -o $@
+
+clean:
+	@$(MAKE) -C libft/ clean
+	@rm -f $(OBJ)
+
+fclean: clean
+	@$(MAKE) -C libft/ clean
+	@rm -f $(NAME)
+	@echo "$(NAME) removed"
+
+re: fclean $(NAME)
+
+test:
+	@gcc main.c libftprintf.a libft/libft.a
+
+retest: re test
+	@echo "\n\n\n"
+	@./a.out
+
+.PHONY: all clean fclean re bonus 
