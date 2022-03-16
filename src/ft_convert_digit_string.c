@@ -12,7 +12,7 @@
 
 #include "../libftprintf.h"
 
-int	ft_convert_digit_string(char *str)
+int	ft_convert_digit_string(const char *str)
 {
 	int		i;
 	int		j;

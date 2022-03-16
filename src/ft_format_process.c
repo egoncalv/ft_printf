@@ -12,7 +12,7 @@
 
 #include "../libftprintf.h"
 
-void    ft_format_process(char *format, t_format *table)
+void    ft_format_process(char *format, t_format **table)
 {
     if (format == "c")
         printf("Ok c");
