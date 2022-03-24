@@ -15,10 +15,7 @@ FLAG = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRC =	src/ft_convert_digit_string.c \
-		src/ft_format_process.c \
-		src/ft_isformat.c \
-		src/ft_printf.c \
+SRC = src/ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 

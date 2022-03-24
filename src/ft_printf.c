@@ -11,60 +11,41 @@
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-#include <stdio.h>
 
-t_format	*ft_initialise(t_format *table)
+void	ft_format_process(const char **format, va_list arguments)
 {
-	table->alternate_form = 0;
-	table->left_adjustment = 0;
-	table->sign = 0;
-	table->blank = 0;
-	table->zero_padding = 0;
-	table->field_width = 0;
-	table->precision = 0;
-	table->total_length = 0;
-	return (table);
+	if (ft_strncmp(*format, "c", 1) == 0)
+		write(1, va_arg(arguments, char *), 1);
+	if (ft_strncmp(*format, "s", 1) == 0)
+		//string
+	if (ft_strncmp(*format, "p", 1) == 0)
+		//pointer in hexadecimal
+	if (ft_strncmp(*format, "d", 1) == 0)
+		//decimal nbr
+	if (ft_strncmp(*format, "i", 1) == 0)
+		//integer
+	if (ft_strncmp(*format, "u", 1) == 0)
+		//unsigned decimal
+	if (ft_strncmp(*format, "x", 1) == 0)
+		//hexadecimal lowercase
+	if (ft_strncmp(*format, "X", 1) == 0)
+		//hexadecimal uppercase
+	if (ft_strncmp(*format, "%", 1) == 0)
+		write(1, "%", 1);
 }
 
-void	ft_flag_process(const char **flag, t_format *table)
-{
-	while (**flag)
-	{
-		if (ft_strncmp(*flag, "#", 1) == 0)
-			(*table).alternate_form = 1;
-		if (ft_strncmp(*flag, "-", 1) == 0)
-			(*table).left_adjustment = 1;
-		if (ft_strncmp(*flag, "+", 1) == 0)
-			(*table).sign = 1;
-		if (ft_strncmp(*flag, " ", 1) == 0)
-			(*table).blank = 1;
-		if (ft_strncmp(*flag, "0", 1) == 0)
-			(*table).zero_padding = 1;
-		if (ft_isdigit(**flag))
-			(*table).field_width = ft_convert_digit_string(*flag);
-		while (ft_isdigit(**flag))
-			*flag += 1;
-		if (ft_strncmp(*flag, ".", 1) == 0)
-			(*table).precision = ft_convert_digit_string(++*flag);
-		while (ft_isdigit(**flag))
-			*flag += 1;
-		*flag += 1;
-	}
-	*flag -= 1;
-	ft_format_process(flag, &table);
-}
 
-void	ft_read_and_write(const char *flag, t_format **table)
+void	ft_read_and_write(const char *flag, va_list arguments)
 {
 	while (*flag)
 	{
 		if (ft_strncmp(flag, "%", 1) == 0)
 		{
 			flag++;
-			ft_flag_process(&flag, *table);
+			ft_format_process(&flag, arguments);
 		}
 		else
-			(*table)->total_length += write(1, flag, 1);
+			write(1, flag, 1);
 		flag++;
 	}
 }
@@ -72,14 +53,9 @@ void	ft_read_and_write(const char *flag, t_format **table)
 int	ft_printf(const char *input, ...)
 {
 	va_list		arguments;
-	t_format	*table;
 
-	table = malloc(sizeof(t_format));
-	if (!table)
-		return (-1);
-	table = ft_initialise(table);
 	va_start(arguments, input);
-	ft_read_and_write(input, &table);
+	ft_read_and_write(input, arguments);
 	va_end(arguments);
 	return (1);
 }
