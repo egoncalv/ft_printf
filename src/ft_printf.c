@@ -12,12 +12,12 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_format_process(const char **format, va_list arguments)
+int	ft_format_process(const char **format, int count, va_list arguments)
 {
 	if (ft_strncmp(*format, "c", 1) == 0)
-		write(1, va_arg(arguments, char *), 1);
+		count += write(1, va_arg(arguments, char *), 1);
 	if (ft_strncmp(*format, "s", 1) == 0)
-		//string
+		count += ft_putstr_fd(va_arg(arguments, char *), 1);
 	if (ft_strncmp(*format, "p", 1) == 0)
 		//pointer in hexadecimal
 	if (ft_strncmp(*format, "d", 1) == 0)
@@ -32,30 +32,34 @@ void	ft_format_process(const char **format, va_list arguments)
 		//hexadecimal uppercase
 	if (ft_strncmp(*format, "%", 1) == 0)
 		write(1, "%", 1);
+	return (count);
 }
 
 
-void	ft_read_and_write(const char *flag, va_list arguments)
+int	ft_read_and_write(const char *flag, int count, va_list arguments)
 {
 	while (*flag)
 	{
 		if (ft_strncmp(flag, "%", 1) == 0)
 		{
 			flag++;
-			ft_format_process(&flag, arguments);
+			count += ft_format_process(&flag, count, arguments);
 		}
 		else
-			write(1, flag, 1);
+			count += write(1, flag, 1);
 		flag++;
 	}
+	return (count);
 }
 
 int	ft_printf(const char *input, ...)
 {
 	va_list		arguments;
+	int			count;
 
+	count = 0;
 	va_start(arguments, input);
-	ft_read_and_write(input, arguments);
+	count = ft_read_and_write(input, count, arguments);
 	va_end(arguments);
-	return (1);
+	return (count);
 }

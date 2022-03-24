@@ -2,9 +2,9 @@
 
 int main ()
 {
-	char	*input = "This is my %c, nice, %c";
+	char	*input = "This is my %s, char %c";
 
-	ft_printf(input, "s", "c");
+	ft_printf(input, "string", "c");
 
 	return (0);
 }

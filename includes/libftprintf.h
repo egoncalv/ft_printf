@@ -18,7 +18,7 @@
 # include "../libft/libft.h"
 
 int			ft_printf(const char *input, ...);
-void		ft_read_and_write(const char *input, va_list arguments);
-void		ft_format_process(const char **format, va_list arguments);
+int			ft_read_and_write(const char *input, int count, va_list arguments);
+int			ft_format_process(const char **format, int count, va_list arguments);
 
 #endif
