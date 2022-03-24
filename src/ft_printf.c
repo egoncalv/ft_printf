@@ -11,44 +11,33 @@
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+#include <stdio.h>
 
-int	ft_format_process(const char **format, int count, va_list arguments)
+int	ft_format_process(const char format, int count, va_list arguments)
 {
-	if (ft_strncmp(*format, "c", 1) == 0)
+	if (format == 'c')
 		count += write(1, va_arg(arguments, char *), 1);
-	if (ft_strncmp(*format, "s", 1) == 0)
+	else if (format == 's')
 		count += ft_putstr_fd(va_arg(arguments, char *), 1);
-	if (ft_strncmp(*format, "p", 1) == 0)
+	else if (format == 'p')
+		printf("Ok");
 		//pointer in hexadecimal
-	if (ft_strncmp(*format, "d", 1) == 0)
+	else if (format == 'd')
+		printf("Ok");
 		//decimal nbr
-	if (ft_strncmp(*format, "i", 1) == 0)
-		//integer
-	if (ft_strncmp(*format, "u", 1) == 0)
+	else if (format == 'i')
+		count += ft_putstr_fd(ft_itoa(va_arg(arguments, int)), 1);
+	else if (format == 'u')
+		printf("Ok");
 		//unsigned decimal
-	if (ft_strncmp(*format, "x", 1) == 0)
+	else if (format == 'x')
+		printf("Ok");
 		//hexadecimal lowercase
-	if (ft_strncmp(*format, "X", 1) == 0)
+	else if (format == 'X')
+		printf("Ok");
 		//hexadecimal uppercase
-	if (ft_strncmp(*format, "%", 1) == 0)
+	else if (format == '%')
 		write(1, "%", 1);
-	return (count);
-}
-
-
-int	ft_read_and_write(const char *flag, int count, va_list arguments)
-{
-	while (*flag)
-	{
-		if (ft_strncmp(flag, "%", 1) == 0)
-		{
-			flag++;
-			count += ft_format_process(&flag, count, arguments);
-		}
-		else
-			count += write(1, flag, 1);
-		flag++;
-	}
 	return (count);
 }
 
@@ -56,10 +45,22 @@ int	ft_printf(const char *input, ...)
 {
 	va_list		arguments;
 	int			count;
+	int			i;
 
-	count = 0;
 	va_start(arguments, input);
-	count = ft_read_and_write(input, count, arguments);
+	count = 0;
+	i = 0;
+	while (input[i])
+	{
+		if (input[i] == '%')
+		{
+			count += ft_format_process(input[i + 1], count, arguments);
+			i++;
+		}
+		else
+			count += write(1, &input[i], 1);
+		i++;
+	}
 	va_end(arguments);
 	return (count);
 }
