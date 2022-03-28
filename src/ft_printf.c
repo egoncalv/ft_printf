@@ -43,7 +43,7 @@ int	ft_format_process(const char format, int count, va_list arguments)
 	else if (format == 'd' || format == 'i')
 		count += ft_putstr_fd(ft_itoa(va_arg(arguments, int)), 1);
 	else if (format == 'u')
-		count += ft_print_unsigned(ft_itoa(va_arg(arguments, int)));
+		count += ft_print_unsigned(ft_itoa(va_arg(arguments, unsigned int)));
 	else if (format == 'x' || format == 'X')
 		count += ft_convert_hex(va_arg(arguments, unsigned int), format);
 	else if (format == '%')
