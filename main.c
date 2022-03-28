@@ -2,8 +2,9 @@
 #include <stdio.h>
 int main ()
 {
-	ft_printf("This is mine:       %x", 0);
-	printf("\nThis is printf:    %x", 0);
+	int	*arg = "aasdasda";
+	printf("\n My Length: %d\n", ft_printf("1234 chars %p", arg));
+	printf("\n Printf Length: %d\n", printf("1234 chars %p", arg));
 	return (0);
 }
 
