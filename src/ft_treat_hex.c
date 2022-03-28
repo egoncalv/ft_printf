@@ -40,7 +40,7 @@ int	ft_convert_hex(unsigned int nbr, char format)
 int	ft_convert_ptr(uintptr_t ptr, char format)
 {
 	static int	count;
-	
+
 	if (ptr >= 16)
 	{
 		count++;
