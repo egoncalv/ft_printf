@@ -38,6 +38,7 @@ clean:
 fclean: clean
 	@$(MAKE) -C libft/ clean
 	@rm -f $(NAME)
+	@rm -f a.out
 	@echo "$(NAME) removed"
 
 re: fclean $(NAME)
