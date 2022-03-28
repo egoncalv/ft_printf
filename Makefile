@@ -15,7 +15,8 @@ FLAG = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRC = src/ft_printf.c
+SRC =	src/ft_printf.c \
+		src/ft_treat_hex.c
 
 OBJ = $(SRC:.c=.o)
 

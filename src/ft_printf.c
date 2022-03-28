@@ -13,6 +13,23 @@
 #include "../includes/libftprintf.h"
 #include <stdio.h>
 
+int	ft_print_unsigned(char	*str)
+{
+	int	length;
+
+	if (ft_strncmp(str, "-", 1) == 0)
+	{
+		length = ft_strlen(str) - 1;
+		write(1, str + 1, length);
+	}
+	else
+	{	
+		length = ft_strlen(str);
+		write(1, str, length);
+	}
+	return (length);
+}
+
 int	ft_format_process(const char format, int count, va_list arguments)
 {
 	if (format == 'c')
@@ -21,21 +38,12 @@ int	ft_format_process(const char format, int count, va_list arguments)
 		count += ft_putstr_fd(va_arg(arguments, char *), 1);
 	else if (format == 'p')
 		printf("Ok");
-		//pointer in hexadecimal
-	else if (format == 'd')
-		printf("Ok");
-		//decimal nbr
-	else if (format == 'i')
+	else if (format == 'd' || format == 'i')
 		count += ft_putstr_fd(ft_itoa(va_arg(arguments, int)), 1);
 	else if (format == 'u')
-		printf("Ok");
-		//unsigned decimal
-	else if (format == 'x')
-		printf("Ok");
-		//hexadecimal lowercase
-	else if (format == 'X')
-		printf("Ok");
-		//hexadecimal uppercase
+		count += ft_print_unsigned(ft_itoa(va_arg(arguments, int)));
+	else if (format == 'x' || format == 'X')
+		count += ft_convert_hex(va_arg(arguments, unsigned int), format);
 	else if (format == '%')
 		write(1, "%", 1);
 	return (count);
