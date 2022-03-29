@@ -6,7 +6,7 @@
 /*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:47:00 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/29 17:22:16 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:39:27 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_format_process(const char format, int count, va_list arguments)
 	else if (format == 'p')
 	{
 		count += ft_putstr_fd("0x", 1);
-		count += ft_convert_ptr(va_arg(arguments, unsigned long long), 'x');
+		count += ft_convert_ptr(va_arg(arguments, unsigned long long));
 	}
 	else if (format == 'd' || format == 'i')
 		count += ft_putstr_fd(ft_itoa(va_arg(arguments, int)), 1);
