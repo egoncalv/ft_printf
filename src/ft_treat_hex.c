@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treat_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:11:07 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/24 21:11:07 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:57:12 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ int	ft_convert_ptr(uintptr_t ptr, char format)
 
 	if (ptr >= 16)
 	{
-		count++;
-		ft_convert_ptr(ptr / 16, format);
+		count = ft_convert_ptr(ptr / 16, format);
 		ft_convert_ptr(ptr % 16, format);
 	}
 	else

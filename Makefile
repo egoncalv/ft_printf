@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 01:22:21 by egoncalv          #+#    #+#              #
-#    Updated: 2022/02/16 01:22:22 by egoncalv         ###   ########.fr        #
+#    Updated: 2022/03/29 16:55:31 by egoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(MAKE) -C libft/ bonus
-	@ar rc $(NAME) $(OBJ)
+	@cp libft/libft.a .
+	@mv libft.a $(NAME)
+	@ar rcs $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "$(NAME) was created"
 

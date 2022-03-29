@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:47:00 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/02/16 00:47:02 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:22:16 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@ int	ft_print_unsigned(char	*str)
 	return (length);
 }
 
+int	ft_printchar(int ch)
+{
+	write(1, &ch, 1);
+	return (1);
+}
+
 int	ft_format_process(const char format, int count, va_list arguments)
 {
 	if (format == 'c')
-		count += write(1, va_arg(arguments, char *), 1);
+		count += ft_printchar(va_arg(arguments, int));
 	else if (format == 's')
 		count += ft_putstr_fd(va_arg(arguments, char *), 1);
 	else if (format == 'p')
@@ -47,7 +53,7 @@ int	ft_format_process(const char format, int count, va_list arguments)
 	else if (format == 'x' || format == 'X')
 		count += ft_convert_hex(va_arg(arguments, unsigned int), format);
 	else if (format == '%')
-		write(1, "%", 1);
+		count += write(1, "%", 1);
 	return (count);
 }
 
