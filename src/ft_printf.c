@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:47:00 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 03:18:07 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 03:47:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_format_process(const char format, int count, va_list arguments)
 	else if (format == 'p')
 		count += ft_convert_ptr(va_arg(arguments, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		count += (va_arg(arguments, int));
+		count += ft_print_nbr(va_arg(arguments, int));
 	else if (format == 'u')
 		count += ft_print_unsigned(ft_itoa(va_arg(arguments, unsigned int)));
 	else if (format == 'x' || format == 'X')
