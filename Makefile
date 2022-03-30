@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 01:22:21 by egoncalv          #+#    #+#              #
-#    Updated: 2022/03/30 03:18:53 by root             ###   ########.fr        #
+#    Updated: 2022/03/30 15:23:12 by egoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME = libftprintf.a
 
 SRC =	src/ft_printf.c \
 		src/ft_treat_hex.c \
-		src/ft_printf_utils.c
+		src/ft_printf_utils.c \
+		src/ft_uitoa.c
 
 OBJ = $(SRC:.c=.o)
 

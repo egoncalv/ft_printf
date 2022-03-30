@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 04:33:07 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 04:04:42 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 15:27:58 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_print_unsigned(unsigned int nbr)
 	char	*ptr;
 	int		count;
 
-	ptr = ft_itoa(nbr);
+	ptr = ft_uitoa(nbr);
 	count = ft_putstr(ptr);
 	free(ptr);
 	return (count);

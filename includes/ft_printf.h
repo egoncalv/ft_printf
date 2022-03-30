@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:47:17 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 03:52:27 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 15:28:29 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int			ft_convert_hex(unsigned int nbr, char format);
 int			ft_convert_ptr(uintptr_t ptr);
 int			ft_putchar(char c);
 int			ft_putstr(char *s);
+char		*ft_uitoa(unsigned int n);
 
 #endif
