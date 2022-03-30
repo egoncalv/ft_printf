@@ -3,48 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:47:00 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/29 18:39:27 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/30 03:18:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_print_unsigned(char	*str)
-{
-	int	length;
-
-	if (ft_strncmp(str, "-", 1) == 0)
-	{
-		length = ft_strlen(str) - 1;
-		write(1, str + 1, length);
-	}
-	else
-	{	
-		length = ft_strlen(str);
-		write(1, str, length);
-	}
-	return (length);
-}
-
-int	ft_printchar(int ch)
-{
-	write(1, &ch, 1);
-	return (1);
-}
-
 int	ft_format_process(const char format, int count, va_list arguments)
 {
 	if (format == 'c')
-		count += ft_printchar(va_arg(arguments, int));
+		count += ft_putchar(va_arg(arguments, int));
 	else if (format == 's')
-		count += ft_putstr_fd(va_arg(arguments, char *), 1);
+		count += ft_putstr(va_arg(arguments, char *));
 	else if (format == 'p')
 		count += ft_convert_ptr(va_arg(arguments, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		count += ft_putstr_fd(ft_itoa(va_arg(arguments, int)), 1);
+		count += (va_arg(arguments, int));
 	else if (format == 'u')
 		count += ft_print_unsigned(ft_itoa(va_arg(arguments, unsigned int)));
 	else if (format == 'x' || format == 'X')

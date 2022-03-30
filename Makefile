@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 01:22:21 by egoncalv          #+#    #+#              #
-#    Updated: 2022/03/29 18:55:20 by egoncalv         ###   ########.fr        #
+#    Updated: 2022/03/30 03:18:53 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ FLAG = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
 SRC =	src/ft_printf.c \
-		src/ft_treat_hex.c
+		src/ft_treat_hex.c \
+		src/ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 
