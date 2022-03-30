@@ -6,7 +6,7 @@
 /*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:11:07 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/29 18:43:49 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/30 03:33:12 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ int	ft_print_ptr(uintptr_t ptr)
 int ft_convert_ptr(uintptr_t ptr)
 {
 	int	count;
+	
 	count = 0;
+	count += ft_putstr_fd("0x", 1);
 	if (!ptr)
 		return (count += write(1, "0", 1));
 	else
-	{
-		count += ft_putstr_fd("0x", 1);
-		count += ft_print_ptr(ptr);
-	}
-	return (count);
+		return (count += ft_print_ptr(ptr));
 }
