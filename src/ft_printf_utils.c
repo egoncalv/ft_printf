@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 04:33:07 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 03:49:10 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 04:04:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,15 @@ int	ft_putstr(char *s)
 	return (ft_strlen(s));
 }
 
-int	ft_print_unsigned(char	*str)
+int	ft_print_unsigned(unsigned int nbr)
 {
-	int	length;
+	char	*ptr;
+	int		count;
 
-	if (ft_strncmp(str, "-", 1) == 0)
-	{
-		length = ft_strlen(str) - 1;
-		write(1, str + 1, length);
-	}
-	else
-	{	
-		length = ft_strlen(str);
-		write(1, str, length);
-	}
-	return (length);
+	ptr = ft_itoa(nbr);
+	count = ft_putstr(ptr);
+	free(ptr);
+	return (count);
 }
 
 int	ft_print_nbr(int nbr)
