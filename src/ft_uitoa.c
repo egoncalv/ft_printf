@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:20:58 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 15:29:08 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/03/30 14:34:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ static int	count_nbr(unsigned int n)
 
 	res = n;
 	count = 1;
-	if (res < 0)
-	{
-		count++;
-		res *= (-1);
-	}
 	while (res >= 10)
 	{
 		count++;
@@ -42,11 +37,7 @@ char	*ft_uitoa(unsigned int n)
 	str = (char *)malloc(sizeof(char) * count_nbr(n) + 1);
 	if (!str)
 		return (NULL);
-	if (n < 0)
-		str[0] = '-';
 	res = n;
-	if (res < 0)
-		res *= (-1);
 	str[count_nbr(n) - i++] = '\0';
 	while (res >= 10)
 	{
