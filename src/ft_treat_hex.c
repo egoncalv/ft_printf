@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treat_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:11:07 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 03:44:49 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 15:41:59 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_convert_hex(unsigned int nbr, char format)
 {
 	static int	count;
+
 	count = 0;
 	if (nbr >= 16)
 		ft_convert_hex(nbr / 16, format);
@@ -23,7 +24,7 @@ int	ft_convert_hex(unsigned int nbr, char format)
 	if (format == 'X')
 		count += ft_putchar("0123456789ABCDEF"[nbr % 16]);
 	return (count);
-	}
+}
 
 int	ft_print_ptr(uintptr_t ptr)
 {
@@ -35,10 +36,10 @@ int	ft_print_ptr(uintptr_t ptr)
 	return (count += ft_putchar("0123456789abcdef"[ptr % 16]));
 }
 
-int ft_convert_ptr(uintptr_t ptr)
+int	ft_convert_ptr(uintptr_t ptr)
 {
 	int	count;
-	
+
 	count = 0;
 	count += ft_putstr("0x");
 	if (!ptr)

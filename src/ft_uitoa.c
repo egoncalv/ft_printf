@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: egoncalv <egoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:20:58 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/03/30 14:34:52 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 15:40:34 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	count_nbr(unsigned int n)
 {
-	int		count;
+	int				count;
 	unsigned long	res;
 
 	res = n;
