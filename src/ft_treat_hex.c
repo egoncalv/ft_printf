@@ -24,11 +24,26 @@ int	ft_convert_hex(unsigned int nbr, char format)
 	return (count);
 	}
 
-int	ft_convert_ptr(uintptr_t ptr)
+int	ft_print_ptr(uintptr_t ptr)
 {
 	static int	count;
 
+	count = 0;
 	if (ptr >= 16)
-		ft_convert_ptr(ptr / 16);
+		ft_print_ptr(ptr / 16);
 	return (count += ft_putchar_fd("0123456789abcdef"[ptr % 16], 1));
+}
+
+int ft_convert_ptr(uintptr_t ptr)
+{
+	int	count;
+	count = 0;
+	if (!ptr)
+		return (count += write(1, "0", 1));
+	else
+	{
+		count += ft_putstr_fd("0x", 1);
+		count += ft_print_ptr(ptr);
+	}
+	return (count);
 }
